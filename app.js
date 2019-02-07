@@ -16,12 +16,18 @@ var Todo = function (_React$Component) {
 	}
 
 	_createClass(Todo, [{
-		key: 'render',
+		key: "render",
 		value: function render() {
 			return React.createElement(
-				'div',
-				null,
-				'Welcome'
+				"div",
+				{ className: "todo" },
+				React.createElement(
+					"span",
+					null,
+					React.createElement("input", { type: "checkbox" }),
+					" ",
+					this.props.name
+				)
 			);
 		}
 	}]);
@@ -29,4 +35,4 @@ var Todo = function (_React$Component) {
 	return Todo;
 }(React.Component);
 
-ReactDOM.render(React.createElement(Todo, null), document.getElementById('root'));
+ReactDOM.render(React.createElement(Todo, { name: "event 1" }), document.getElementById('root'));
