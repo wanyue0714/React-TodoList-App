@@ -4,7 +4,7 @@ body {
 }
 
 .todo {
-	backgroud: #eee;
+	background-color: #eee;
 	margin: 5px auto;
 	padding: 10px;
 	text-align: left;
@@ -12,8 +12,12 @@ body {
 }
 
 .todo input {
-	backgroud:#eee;
+	background-color: #eee;
 	border: 0;
 	font-size: 1.25vw;
 	padding:5px;
+}
+
+.todo .done {
+	text-decoration: line-through;
 }

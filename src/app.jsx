@@ -40,7 +40,7 @@ class Todo extends React.Component {
 		return <div className = "todo">
 					<span>
 						<input type = "checkbox" checked = {this.state.done} onClick = {this.handleClick} />
-						<input type = "text" value = {this.state.text} onChange = {this.handleChange} onBlur = {this.handleSubmit} placeholder="Enter your Todo here"/>
+						<input type = "text" value = {this.state.text} className={(this.state.done)? 'done' : 'not-done'} onChange = {this.handleChange} onBlur = {this.handleSubmit} placeholder="Enter your Todo here"/>
 					</span>
 				</div>;
 	}

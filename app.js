@@ -61,7 +61,7 @@ var Todo = function (_React$Component) {
 					"span",
 					null,
 					React.createElement("input", { type: "checkbox", checked: this.state.done, onClick: this.handleClick }),
-					React.createElement("input", { type: "text", value: this.state.text, onChange: this.handleChange, onBlur: this.handleSubmit, placeholder: "Enter your Todo here" })
+					React.createElement("input", { type: "text", value: this.state.text, className: this.state.done ? 'done' : 'not-done', onChange: this.handleChange, onBlur: this.handleSubmit, placeholder: "Enter your Todo here" })
 				)
 			);
 		}
