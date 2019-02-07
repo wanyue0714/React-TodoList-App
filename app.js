@@ -14,9 +14,11 @@ var Todo = function (_React$Component) {
 
 		var _this = _possibleConstructorReturn(this, (Todo.__proto__ || Object.getPrototypeOf(Todo)).call(this, props));
 
-		_this.state = { done: _this.props.done == "true" && props.done,
-			text: props.text };
+		_this.state = { done: props.done, text: props.text };
+
 		_this.handleClick = _this.handleClick.bind(_this);
+		_this.handleChange = _this.handleChange.bind(_this);
+		_this.handleSubmit = _this.handleSubmit.bind(_this);
 		return _this;
 	}
 
@@ -24,8 +26,25 @@ var Todo = function (_React$Component) {
 		key: "handleClick",
 		value: function handleClick(event) {
 			this.setState(function (state) {
-				done: !state.done;
+				return { done: !state.done };
+			}, function (event) {
+				this.handleSubmit(event);
 			});
+		}
+	}, {
+		key: "handleChange",
+		value: function handleChange(event) {
+			var text = event.target.value;
+			console.log(text);
+			this.setState(function (state) {
+				return { text: text };
+			});
+		}
+	}, {
+		key: "handleSubmit",
+		value: function handleSubmit(event) {
+			console.log("submit");
+			this.setState(function (state) {});
 		}
 	}, {
 		key: "render",
@@ -38,7 +57,7 @@ var Todo = function (_React$Component) {
 					"span",
 					null,
 					React.createElement("input", { type: "checkbox", checked: this.props.done, onClick: this.handleClick }),
-					React.createElement("input", { type: "text", value: this.props.text })
+					React.createElement("input", { type: "text", value: this.props.text, onChange: this.handleChange, onBlur: this.handleSubmit, placeholder: "Enter your Todo here" })
 				)
 			);
 		}
@@ -47,4 +66,4 @@ var Todo = function (_React$Component) {
 	return Todo;
 }(React.Component);
 
-ReactDOM.render(React.createElement(Todo, { text: "event 1", done: "false" }), document.getElementById('root'));
+ReactDOM.render(React.createElement(Todo, null), document.getElementById('root'));
