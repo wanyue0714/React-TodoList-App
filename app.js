@@ -16,10 +16,18 @@ var Todo = function (_React$Component) {
 
 		_this.state = { done: _this.props.done == "true" && props.done,
 			text: props.text };
+		_this.handleClick = _this.handleClick.bind(_this);
 		return _this;
 	}
 
 	_createClass(Todo, [{
+		key: "handleClick",
+		value: function handleClick(event) {
+			this.setState(function (state) {
+				done: !state.done;
+			});
+		}
+	}, {
 		key: "render",
 		value: function render() {
 
@@ -29,7 +37,7 @@ var Todo = function (_React$Component) {
 				React.createElement(
 					"span",
 					null,
-					React.createElement("input", { type: "checkbox", checked: this.props.done }),
+					React.createElement("input", { type: "checkbox", checked: this.props.done, onClick: this.handleClick }),
 					React.createElement("input", { type: "text", value: this.props.text })
 				)
 			);
